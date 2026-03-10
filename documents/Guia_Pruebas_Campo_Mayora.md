@@ -1,6 +1,6 @@
 # 🌿 Guía de Pruebas de Campo — La Mayora (R3)
 
-> **Objetivo:** Validar los KPIs de comunicación 5G en condiciones operativas reales para el Report 3 (R3).  
+> **Objetivo:** Validar los KPIs de comunicación 5G en condiciones operativas reales para el Report 3 (R3), cerrando el bucle con la simulación del Gemelo Digital (Altair Feko + Open5GS).  
 > **Equipo necesario:** Portátil con `fiveg_measure`, Router NETGEAR MR6150 con SIM 5G, cable Ethernet, batería portátil.
 
 ---
@@ -79,20 +79,19 @@ fiveg-measure doctor --config configs/conf_mayora.yaml
 
 ---
 
-## Fase 3: Pruebas en Site 1 — Micro-celda (Water Tank)
+## Fase 3: Baseline — Emplazamiento 1 (Edificio Largo)
 
 ### Objetivo
-Validar **uplink de vídeo HD** y medir la calidad radio en la zona más cercana a los cultivos.
+Establecer el **baseline de rendimiento idóneo** para la red. Según Altair Feko, esta ubicación garantiza el mejor comportamiento radio (-50 dBm a -55 dBm).
 
 ### Métricas clave
-- RSRP, RSRQ, SINR (calidad radio → correlación con Feko)
-- Throughput uplink TCP (simula streaming de vídeo)
-- Latencia E2E
+- RSRP, RSRQ, SINR: deben coincidir con previsiones de alta eficiencia (-50 a -55 dBm).
+- Throughput uplink TCP óptimo y Latencia mínima.
 
 ### Procedimiento
 
-1. Ubicarse en el **Site 1 (junto al Water Tank / micro-celda)**.
-2. Anotar coordenadas GPS (foto del móvil con ubicación).
+1. Ubicarse frente al **Emplazamiento 1 (Edificio largo)**.
+2. Comprobar que estás apuntando aproximadamente en el acimut de **25°** (hacia la zona de cultivo).
 3. Anotar las métricas radio del router:
    - Acceder a **http://192.168.1.1 → Signal Info**
    - Apuntar: **RSRP**, **RSRQ**, **SINR**, **Banda**, **Cell ID**
@@ -102,47 +101,45 @@ Validar **uplink de vídeo HD** y medir la calidad radio en la zona más cercana
 ```bash
 fiveg-measure run-suite \
   --config configs/conf_mayora.yaml \
-  --outdir results/site1_microcelda \
-  --tag "Site1_MicroCelda_$(date +%Y%m%d_%H%M)" \
+  --outdir results/fase3_emplazamiento1_optimo \
+  --tag "Fase3_Emp1_Optimo_$(date +%Y%m%d_%H%M)" \
   --start-server
 ```
 
-5. Mientras corre la suite (~10 min), tomar fotos del entorno y de la pantalla del router.
+5. Mientras corre la suite (~10 min), tomar fotos del entorno y capturar pantalla del router.
 
 6. Al terminar, generar el resumen:
 
 ```bash
 fiveg-measure summarize \
-  --indir results/site1_microcelda \
-  --out results/site1_microcelda/summary.csv \
+  --indir results/fase3_emplazamiento1_optimo \
+  --out results/fase3_emplazamiento1_optimo/summary.csv \
   --config configs/conf_mayora.yaml
 ```
 
 7. **Apuntar en la libreta:**
-   - RSRP medido: ___ dBm  (Feko predice: ___ dBm)
-   - SINR medido: ___ dB
+   - RSRP medido: ___ dBm  (Feko predice: -50 a -55 dBm)
    - Latencia P99: ___ ms
-   - Throughput UL: ___ Mbps
 
 ---
 
-## Fase 4: Pruebas en Site 2 — Macro-celda (Torre Telco)
+## Fase 4: Pruebas Operativas de Vuelo — Zona de Plantación (Zona Verde)
 
 ### Objetivo
-Verificar **cobertura general** y robustez de la conexión en toda la extensión de la finca.
+Validación **operativa** sobre trayectorias del dron. En esta zona verde (geográficamente alrededor de **36°45'32.9"N 4°02'27.8"W**) el robot necesita asegurar una latencia E2E ≤ 50ms y PER ≤ 1% para la transmisión de vídeo a Edge.
 
 ### Procedimiento
 
-1. Desplazarse al **Site 2 (zona de la torre de telecomunicaciones)**.
-2. Repetir la captura de métricas radio (RSRP, SINR, etc.)
+1. Dirígete a la **Zona Verde de plantación** (coord: **36°45'32.9"N 4°02'27.8"W**) alineado con la trayectoria de máxima radiación (**acimut 25°** del emplezamiento 1).
+2. Capturar métricas radio iniciales.
 
-3. Lanzar la suite:
+3. Lanzar la suite **mientras caminas lentamente por las hileras** (simulando avance del robot):
 
 ```bash
 fiveg-measure run-suite \
   --config configs/conf_mayora.yaml \
-  --outdir results/site2_macrocelda \
-  --tag "Site2_MacroCelda_$(date +%Y%m%d_%H%M)" \
+  --outdir results/fase4_vuelo_plantacion \
+  --tag "Fase4_Vuelo_Plantacion_$(date +%Y%m%d_%H%M)" \
   --start-server
 ```
 
@@ -150,103 +147,42 @@ fiveg-measure run-suite \
 
 ```bash
 fiveg-measure summarize \
-  --indir results/site2_macrocelda \
-  --out results/site2_macrocelda/summary.csv \
+  --indir results/fase4_vuelo_plantacion \
+  --out results/fase4_vuelo_plantacion/summary.csv \
   --config configs/conf_mayora.yaml
 ```
 
-5. **Apuntar en la libreta:**
-   - RSRP medido: ___ dBm  (Feko predice: ___ dBm)
-   - SINR medido: ___ dB
-   - Latencia P99: ___ ms
-   - Throughput DL/UL: ___ Mbps
-
----
-
-## Fase 5: Pruebas en Áreas de Vuelo (Líneas de Cultivo)
-
-### Objetivo
-Validación **operativa**: comprobar que la latencia E2E ≤ 50ms y PER ≤ 1% mientras se recorren las hileras de pitahaya (simula trayectoria de dron).
-
-### Procedimiento
-
-1. Ubicarse en el **inicio de una línea de cultivo** representativa.
-2. Capturar métricas radio iniciales.
-
-3. Lanzar la suite **mientras se recorre la hilera a pie** (simula movimiento del dron):
-
-```bash
-fiveg-measure run-suite \
-  --config configs/conf_mayora.yaml \
-  --outdir results/vuelo_linea1 \
-  --tag "Vuelo_Linea1_$(date +%Y%m%d_%H%M)" \
-  --start-server
-```
-
-4. **Repetir en al menos 2-3 líneas diferentes** para capturar variabilidad:
-
-```bash
-fiveg-measure run-suite \
-  --config configs/conf_mayora.yaml \
-  --outdir results/vuelo_linea2 \
-  --tag "Vuelo_Linea2_$(date +%Y%m%d_%H%M)" \
-  --start-server
-```
-
-5. Generar resúmenes:
-
-```bash
-fiveg-measure summarize \
-  --indir results/vuelo_linea1 \
-  --out results/vuelo_linea1/summary.csv \
-  --config configs/conf_mayora.yaml
-
-fiveg-measure summarize \
-  --indir results/vuelo_linea2 \
-  --out results/vuelo_linea2/summary.csv \
-  --config configs/conf_mayora.yaml
-```
-
-6. **Verificar KPIs de aplicación:**
+5. **Verificar KPIs de aplicación in-situ:**
    - Latencia P99 ≤ 50 ms → ✅/❌
    - PER (loss_pct) ≤ 1% → ✅/❌
    - Throughput UL ≥ 15 Mbps → ✅/❌
 
 ---
 
-## Fase 6: Pruebas en Zonas de Transición y Sombras
+## Fase 5: Límites y Degradación (Edge Cases)
 
 ### Objetivo
-Asegurar fiabilidad del sistema en **bordes de celda** y zonas con potencial degradación de señal.
+Demostrar el comportamiento de la red cuando la señal cae (como en la simulación al inyectar ruido), confirmando el margen hasta perder el enlace de streaming HD.
 
 ### Procedimiento
 
-1. Identificar **zonas de borde de cobertura** (donde el RSRP cae por debajo de -100 dBm).
-2. Identificar **zonas de sombra** (detrás de edificios, arboleda densa, etc.)
+1. **Test Degradado en Emplazamiento 2 (Edificio alejado):** Este sitio sirve para probar de forma natural una caída intencionada de potencia (-70 a -75 dBm).
+2. **También**, camina hasta un borde de celda o pégate a la sombra de los edificios mientras corres el test para provocar que el SINR empeore y asimilar la simulación virtual.
 
-3. En cada zona, lanzar una suite reducida o completa:
-
+3. Lanza la suite:
 ```bash
 fiveg-measure run-suite \
   --config configs/conf_mayora.yaml \
-  --outdir results/transicion_borde_celda \
-  --tag "Transicion_BordeCelda_$(date +%Y%m%d_%H%M)" \
+  --outdir results/fase5_degradacion_emp2 \
+  --tag "Fase5_Degradacion_$(date +%Y%m%d_%H%M)" \
   --start-server
 ```
 
-```bash
-fiveg-measure run-suite \
-  --config configs/conf_mayora.yaml \
-  --outdir results/sombra_edificio \
-  --tag "Sombra_Edificio_$(date +%Y%m%d_%H%M)" \
-  --start-server
-```
-
-4. **Objetivo:** Documentar cómo degradan los KPIs en condiciones adversas.
+4. Observa la caída en Throughput UL y el incremento de pérdida de paquetes o Latencia P99.
 
 ---
 
-## Fase 7: Resumen Global y Dashboard
+## Fase 6: Resumen Global y Dashboard
 
 Al finalizar todas las pruebas de campo, generar un resumen global:
 
@@ -259,41 +195,34 @@ fiveg-measure dashboard --indir results/ --port 8181
 
 ```
 results/
-├── site1_microcelda/      ← Fase 3
-├── site2_macrocelda/      ← Fase 4
-├── vuelo_linea1/          ← Fase 5
-├── vuelo_linea2/          ← Fase 5
-├── vuelo_linea3/          ← Fase 5
-├── transicion_borde_celda/ ← Fase 6
-└── sombra_edificio/        ← Fase 6
+├── fase3_emplazamiento1_optimo/
+├── fase4_vuelo_plantacion/
+└── fase5_degradacion_emp2/
 ```
 
 ---
 
 ## Checklist de Métricas Radio (rellenar en campo)
 
-| Ubicación | RSRP (dBm) | RSRQ (dB) | SINR (dB) | Banda | Cell ID | Feko RSRP | Delta |
-|:---|:---|:---|:---|:---|:---|:---|:---|
-| Site 1 (Water Tank) | | | | | | | |
-| Site 2 (Torre Telco) | | | | | | | |
-| Línea vuelo 1 (inicio) | | | | | | | |
-| Línea vuelo 1 (final) | | | | | | | |
-| Línea vuelo 2 | | | | | | | |
-| Borde de celda | | | | | | | |
-| Zona de sombra | | | | | | | |
+| Ubicación | RSRP (dBm) | RSRQ (dB) | SINR (dB) | Banda | Cell ID | Feko RSRP esperado |
+|:---|:---|:---|:---|:---|:---|:---|
+| Fase 3: Emplazamiento 1 idóneo | | | | | | -50 a -55 dBm |
+| Fase 4: Vuelo Zona Verde inicio | | | | | | Variable |
+| Fase 4: Vuelo Zona Verde fin | | | | | | Variable |
+| Fase 5: Emplazamiento 2 alejado| | | | | | -70 a -75 dBm |
+| Fase 5: Sombra intencionada | | | | | | Peor que -75 dBm |
 
 ---
 
 ## Checklist de KPIs R3 — Validación Final
 
-| KPI | Objetivo | Site 1 | Site 2 | Vuelo 1 | Vuelo 2 | Borde | Sombra |
-|:---|:---|:---|:---|:---|:---|:---|:---|
-| Latencia E2E (P99) | ≤ 50 ms | | | | | | |
-| PER / Pérdida UDP | ≤ 1% | | | | | | |
-| Throughput TCP UL | ≥ 15 Mbps | | | | | | |
-| MEC Speed | ≤ 500 ms | | | | | | |
-| Reliability | ≥ 99% | | | | | | |
-| Correlación Feko (Δ RSRP) | ≤ 6 dB | | | | | | |
+| KPI | Objetivo | Fase 3 (Emp 1) | Fase 4 (Plantación) | Fase 5 (Degradado) |
+|:---|:---|:---|:---|:---|
+| Latencia E2E (P99) | ≤ 50 ms | | | |
+| PER / Pérdida UDP | ≤ 1% | | | |
+| Throughput TCP UL | ≥ 15 Mbps | | | |
+| MEC Speed | ≤ 500 ms | | | |
+| Reliability | ≥ 99% | | | |
 
 ---
 
@@ -303,7 +232,4 @@ results/
 > **Antes de cada run**, desactivar el Wi-Fi del portátil para asegurar que todo el tráfico pasa por la conexión 5G del router.
 
 > [!TIP]
-> Hacer **fotos de la pantalla del router** con las métricas de señal y del entorno en cada punto de medición. Estas fotos servirán como evidencia para el R3.
-
-> [!IMPORTANT]
-> Si la batería del router se agota, los resultados parciales se conservan en la carpeta de salida. Puedes reanudar con un nuevo `--tag` sin perder datos anteriores.
+> Hacer **fotos de la pantalla del router** con las métricas de señal, además de documentar **las coordenadas exactas de medición**. Estas fotos cerrarán el bucle Feko ↔ Mundo real para el texto del R3.
