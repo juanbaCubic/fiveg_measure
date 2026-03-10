@@ -79,48 +79,50 @@ fiveg-measure doctor --config configs/conf_mayora.yaml
 
 ---
 
-## Fase 3: Baseline — Emplazamiento 1 (Edificio Largo)
+## Fase 3: Baseline — Antena Física Real
 
 ### Objetivo
-Establecer el **baseline de rendimiento idóneo** para la red. Según Altair Feko, esta ubicación garantiza el mejor comportamiento radio (-50 dBm a -55 dBm).
+Establecer el **baseline de rendimiento idóneo** para la red basándonos en la instalación física real. Según las especificaciones de Altair Feko (página 26), la antena sectorial está montada con las siguientes características:
+- **Ubicación exacta:** 36° 45′ 31.56″ N, 4° 2′ 32.31″ W
+- **Acimut de máxima radiación:** 25°
+- **Altura sobre el terreno:** 5.65 m (Cota 75 m)
+- **Potencia esperada (Feko) en la zona objetivo a 150m:** ~ -55 dBm
 
 ### Métricas clave
-- RSRP, RSRQ, SINR: deben coincidir con previsiones de alta eficiencia (-50 a -55 dBm).
+- RSRP, RSRQ, SINR: deben coincidir empíricamente con la previsión de alta eficiencia de Feko (-55 dBm).
 - Throughput uplink TCP óptimo y Latencia mínima.
 
 ### Procedimiento
 
-1. Ubicarse frente al **Emplazamiento 1 (Edificio largo)**.
-2. Comprobar que estás apuntando aproximadamente en el acimut de **25°** (hacia la zona de cultivo).
-3. Anotar las métricas radio del router:
+1. Ubícate lo más cerca posible de la **Antena Física Real (36° 45′ 31.56″ N, 4° 2′ 32.31″ W)**, posicionándote en la dirección del acimut **25°** (hacia la zona de cultivo verde).
+2. Anotar las métricas radio del router (para constatar pérdidas por espacio libre):
    - Acceder a **http://192.168.1.1 → Signal Info**
    - Apuntar: **RSRP**, **RSRQ**, **SINR**, **Banda**, **Cell ID**
 
-4. Lanzar la suite completa:
+3. Lanzar la suite completa:
 
 ```bash
 fiveg-measure run-suite \
   --config configs/conf_mayora.yaml \
-  --outdir results/fase3_emplazamiento1_optimo \
-  --tag "Fase3_Emp1_Optimo_$(date +%Y%m%d_%H%M)" \
+  --outdir results/fase3_baseline_antena \
+  --tag "Fase3_Baseline_Antena_$(date +%Y%m%d_%H%M)" \
   --start-server
 ```
 
-5. Mientras corre la suite (~10 min), tomar fotos del entorno y capturar pantalla del router.
+4. Mientras corre la suite (~10 min), tomar fotos que documenten la línea de visión directa entre el router y la antena en el acimut 25°.
 
-6. Al terminar, generar el resumen:
+5. Al terminar, generar el resumen:
 
 ```bash
 fiveg-measure summarize \
-  --indir results/fase3_emplazamiento1_optimo \
-  --out results/fase3_emplazamiento1_optimo/summary.csv \
+  --indir results/fase3_baseline_antena \
+  --out results/fase3_baseline_antena/summary.csv \
   --config configs/conf_mayora.yaml
 ```
 
-7. **Apuntar en la libreta:**
-   - RSRP medido: ___ dBm  (Feko predice: -50 a -55 dBm)
+6. **Apuntar en la libreta:**
+   - RSRP medido cerca de antena: ___ dBm  
    - Latencia P99: ___ ms
-
 ---
 
 ## Fase 4: Pruebas Operativas de Vuelo — Zona de Plantación (Zona Verde)
