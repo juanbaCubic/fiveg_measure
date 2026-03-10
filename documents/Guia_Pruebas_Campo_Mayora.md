@@ -206,6 +206,9 @@ results/
 
 ## Checklist de Métricas Radio (rellenar en campo)
 
+![Ubicaciones medidas](Ubicaciones%20medidas.png)
+
+
 | Ubicación | RSRP (dBm) | RSRQ (dB) | SINR (dB) | Banda | Cell ID | Feko RSRP esperado |
 |:---|:---|:---|:---|:---|:---|:---|
 | Fase 3: Emplazamiento 1 idóneo | | | | | | -50 a -55 dBm |
