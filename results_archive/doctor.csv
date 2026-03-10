@@ -1,0 +1,209 @@
+check,status,detail,timestamp
+tool:iperf3,OK,/usr/local/bin/iperf3,2026-03-05T19:59:10+01:00
+tool:mtr,FAIL,,2026-03-05T19:59:10+01:00
+tool:traceroute,OK,/usr/sbin/traceroute,2026-03-05T19:59:10+01:00
+tool:ping,OK,/sbin/ping,2026-03-05T19:59:10+01:00
+tool:ffmpeg (optional),FAIL,not installed — optional,2026-03-05T19:59:10+01:00
+interface:en5,FAIL,"{'interface_name': 'en5', 'interface_ip': '', 'gateway': '192.168.1.1', 'mtu': 16000}",2026-03-05T19:59:10+01:00
+wifi_only_ethernet,OK,OK,2026-03-05T19:59:10+01:00
+ping:3.69.220.213,OK,"220.213 (3.69.220.213): 56 data bytes
+Request timeout for icmp_seq 0
+Request timeout for icmp_seq 1
+
+--- 3.69.220.213 ping statistics ---
+3 packets transmitted, 0 packets received, 100.0% packet loss",2026-03-05T19:59:15+01:00
+tcp:3.69.220.213:22,OK,837.4ms,2026-03-05T19:59:16+01:00
+tcp:3.69.220.213:5201,FAIL,timed out,2026-03-05T19:59:21+01:00
+ntp_sync,OK,"sntp_exchange {
+        result: 0 (Success)
+        header: 24 (li:0 vn:4 mode:4)
+       stratum: 01",2026-03-05T19:59:22+01:00
+tool:iperf3,OK,/usr/local/bin/iperf3,2026-03-05T20:05:30+01:00
+tool:mtr,FAIL,,2026-03-05T20:05:30+01:00
+tool:traceroute,OK,/usr/sbin/traceroute,2026-03-05T20:05:30+01:00
+tool:ping,OK,/sbin/ping,2026-03-05T20:05:30+01:00
+tool:ffmpeg (optional),FAIL,not installed — optional,2026-03-05T20:05:30+01:00
+interface:en5,FAIL,"{'interface_name': 'en5', 'interface_ip': '', 'gateway': '192.168.1.1', 'mtu': 16000}",2026-03-05T20:05:30+01:00
+wifi_only_ethernet,OK,OK,2026-03-05T20:05:30+01:00
+ping:3.69.220.213,OK,"220.213 (3.69.220.213): 56 data bytes
+Request timeout for icmp_seq 0
+Request timeout for icmp_seq 1
+
+--- 3.69.220.213 ping statistics ---
+3 packets transmitted, 0 packets received, 100.0% packet loss",2026-03-05T20:05:35+01:00
+tcp:3.69.220.213:22,OK,196.4ms,2026-03-05T20:05:35+01:00
+tcp:3.69.220.213:5201,FAIL,timed out,2026-03-05T20:05:40+01:00
+ntp_sync,OK,"sntp_exchange {
+        result: 0 (Success)
+        header: 24 (li:0 vn:4 mode:4)
+       stratum: 01",2026-03-05T20:05:41+01:00
+tool:iperf3,OK,/usr/local/bin/iperf3,2026-03-05T20:09:27+01:00
+tool:mtr,FAIL,,2026-03-05T20:09:27+01:00
+tool:traceroute,OK,/usr/sbin/traceroute,2026-03-05T20:09:27+01:00
+tool:ping,OK,/sbin/ping,2026-03-05T20:09:27+01:00
+tool:ffmpeg (optional),FAIL,not installed — optional,2026-03-05T20:09:27+01:00
+interface:en5,FAIL,"{'interface_name': 'en5', 'interface_ip': '', 'gateway': '192.168.1.1', 'mtu': 16000}",2026-03-05T20:09:27+01:00
+wifi_only_ethernet,OK,OK,2026-03-05T20:09:27+01:00
+ping:3.69.220.213,OK,"220.213 (3.69.220.213): 56 data bytes
+Request timeout for icmp_seq 0
+Request timeout for icmp_seq 1
+
+--- 3.69.220.213 ping statistics ---
+3 packets transmitted, 0 packets received, 100.0% packet loss",2026-03-05T20:09:32+01:00
+tcp:3.69.220.213:22,OK,141.3ms,2026-03-05T20:09:32+01:00
+tcp:3.69.220.213:5201,FAIL,timed out,2026-03-05T20:09:37+01:00
+ntp_sync,OK,"sntp_exchange {
+        result: 0 (Success)
+        header: 24 (li:0 vn:4 mode:4)
+       stratum: 01",2026-03-05T20:09:37+01:00
+tool:iperf3,OK,/usr/local/bin/iperf3,2026-03-05T20:11:39+01:00
+tool:mtr,FAIL,,2026-03-05T20:11:39+01:00
+tool:traceroute,OK,/usr/sbin/traceroute,2026-03-05T20:11:39+01:00
+tool:ping,OK,/sbin/ping,2026-03-05T20:11:39+01:00
+tool:ffmpeg (optional),FAIL,not installed — optional,2026-03-05T20:11:39+01:00
+interface:en5,FAIL,"{'interface_name': 'en5', 'interface_ip': '', 'gateway': '192.168.1.1', 'mtu': 16000}",2026-03-05T20:11:39+01:00
+wifi_only_ethernet,OK,OK,2026-03-05T20:11:39+01:00
+ping:3.69.220.213,OK,"220.213 (3.69.220.213): 56 data bytes
+Request timeout for icmp_seq 0
+Request timeout for icmp_seq 1
+
+--- 3.69.220.213 ping statistics ---
+3 packets transmitted, 0 packets received, 100.0% packet loss",2026-03-05T20:11:44+01:00
+tcp:3.69.220.213:22,OK,78.0ms,2026-03-05T20:11:44+01:00
+tcp:3.69.220.213:5201,FAIL,timed out,2026-03-05T20:11:49+01:00
+ntp_sync,OK,"sntp_exchange {
+        result: 0 (Success)
+        header: 24 (li:0 vn:4 mode:4)
+       stratum: 01",2026-03-05T20:11:51+01:00
+tool:iperf3,OK,/usr/local/bin/iperf3,2026-03-05T20:13:20+01:00
+tool:mtr,FAIL,,2026-03-05T20:13:20+01:00
+tool:traceroute,OK,/usr/sbin/traceroute,2026-03-05T20:13:20+01:00
+tool:ping,OK,/sbin/ping,2026-03-05T20:13:20+01:00
+tool:ffmpeg (optional),FAIL,not installed — optional,2026-03-05T20:13:20+01:00
+interface:en5,FAIL,"{'interface_name': 'en5', 'interface_ip': '', 'gateway': '192.168.1.1', 'mtu': 16000}",2026-03-05T20:13:20+01:00
+wifi_only_ethernet,OK,OK,2026-03-05T20:13:20+01:00
+ping:3.69.220.213,OK,"220.213 (3.69.220.213): 56 data bytes
+Request timeout for icmp_seq 0
+Request timeout for icmp_seq 1
+
+--- 3.69.220.213 ping statistics ---
+3 packets transmitted, 0 packets received, 100.0% packet loss",2026-03-05T20:13:25+01:00
+tcp:3.69.220.213:22,OK,96.8ms,2026-03-05T20:13:25+01:00
+tcp:3.69.220.213:5201,FAIL,timed out,2026-03-05T20:13:30+01:00
+ntp_sync,OK,"sntp_exchange {
+        result: 0 (Success)
+        header: 24 (li:0 vn:4 mode:4)
+       stratum: 01",2026-03-05T20:13:31+01:00
+tool:iperf3,OK,/usr/local/bin/iperf3,2026-03-05T20:14:36+01:00
+tool:mtr,FAIL,,2026-03-05T20:14:36+01:00
+tool:traceroute,OK,/usr/sbin/traceroute,2026-03-05T20:14:36+01:00
+tool:ping,OK,/sbin/ping,2026-03-05T20:14:36+01:00
+tool:ffmpeg (optional),FAIL,not installed — optional,2026-03-05T20:14:36+01:00
+interface:en5,FAIL,"{'interface_name': 'en5', 'interface_ip': '', 'gateway': '192.168.1.1', 'mtu': 16000}",2026-03-05T20:14:36+01:00
+wifi_only_ethernet,OK,OK,2026-03-05T20:14:36+01:00
+ping:3.69.220.213,OK,"220.213 (3.69.220.213): 56 data bytes
+Request timeout for icmp_seq 0
+Request timeout for icmp_seq 1
+
+--- 3.69.220.213 ping statistics ---
+3 packets transmitted, 0 packets received, 100.0% packet loss",2026-03-05T20:14:41+01:00
+tcp:3.69.220.213:22,OK,65.0ms,2026-03-05T20:14:41+01:00
+tcp:3.69.220.213:5201,FAIL,timed out,2026-03-05T20:14:46+01:00
+ntp_sync,OK,"sntp_exchange {
+        result: 0 (Success)
+        header: 24 (li:0 vn:4 mode:4)
+       stratum: 01",2026-03-05T20:14:47+01:00
+tool:iperf3,OK,/usr/local/bin/iperf3,2026-03-05T20:17:11+01:00
+tool:mtr,FAIL,,2026-03-05T20:17:11+01:00
+tool:traceroute,OK,/usr/sbin/traceroute,2026-03-05T20:17:11+01:00
+tool:ping,OK,/sbin/ping,2026-03-05T20:17:11+01:00
+tool:ffmpeg (optional),FAIL,not installed — optional,2026-03-05T20:17:11+01:00
+interface:en5,FAIL,"{'interface_name': 'en5', 'interface_ip': '', 'gateway': '192.168.1.1', 'mtu': 16000}",2026-03-05T20:17:11+01:00
+wifi_only_ethernet,OK,OK,2026-03-05T20:17:11+01:00
+ping:3.69.220.213,OK,"220.213 (3.69.220.213): 56 data bytes
+Request timeout for icmp_seq 0
+Request timeout for icmp_seq 1
+
+--- 3.69.220.213 ping statistics ---
+3 packets transmitted, 0 packets received, 100.0% packet loss",2026-03-05T20:17:16+01:00
+tcp:3.69.220.213:22,OK,123.0ms,2026-03-05T20:17:16+01:00
+tcp:3.69.220.213:5201,OK,97.2ms,2026-03-05T20:17:16+01:00
+ntp_sync,OK,"sntp_exchange {
+        result: 0 (Success)
+        header: 24 (li:0 vn:4 mode:4)
+       stratum: 01",2026-03-05T20:17:16+01:00
+tool:iperf3,OK,/usr/local/bin/iperf3,2026-03-05T20:20:08+01:00
+tool:mtr,FAIL,,2026-03-05T20:20:08+01:00
+tool:traceroute,OK,/usr/sbin/traceroute,2026-03-05T20:20:08+01:00
+tool:ping,OK,/sbin/ping,2026-03-05T20:20:08+01:00
+tool:ffmpeg (optional),FAIL,not installed — optional,2026-03-05T20:20:08+01:00
+interface:en5,FAIL,"{'interface_name': 'en5', 'interface_ip': '', 'gateway': '192.168.1.1', 'mtu': 16000}",2026-03-05T20:20:08+01:00
+wifi_only_ethernet,OK,OK,2026-03-05T20:20:08+01:00
+ping:3.69.220.213,OK,"220.213 (3.69.220.213): 56 data bytes
+Request timeout for icmp_seq 0
+Request timeout for icmp_seq 1
+
+--- 3.69.220.213 ping statistics ---
+3 packets transmitted, 0 packets received, 100.0% packet loss",2026-03-05T20:20:13+01:00
+tcp:3.69.220.213:22,OK,85.7ms,2026-03-05T20:20:13+01:00
+tcp:3.69.220.213:5201,OK,73.0ms,2026-03-05T20:20:13+01:00
+ntp_sync,OK,"sntp_exchange {
+        result: 0 (Success)
+        header: 24 (li:0 vn:4 mode:4)
+       stratum: 01",2026-03-05T20:20:13+01:00
+tool:iperf3,OK,/usr/local/bin/iperf3,2026-03-09T10:20:11+01:00
+tool:mtr,FAIL,,2026-03-09T10:20:11+01:00
+tool:traceroute,OK,/usr/sbin/traceroute,2026-03-09T10:20:11+01:00
+tool:ping,OK,/sbin/ping,2026-03-09T10:20:11+01:00
+tool:ffmpeg (optional),FAIL,not installed — optional,2026-03-09T10:20:11+01:00
+interface:en5,FAIL,"{'interface_name': 'en5', 'interface_ip': '', 'gateway': '192.168.18.1', 'mtu': 16000}",2026-03-09T10:20:11+01:00
+wifi_only_ethernet,FAIL,Wi-Fi active,2026-03-09T10:20:11+01:00
+ping:10.34.1.31,OK,"10.34.1.31 (10.34.1.31): 56 data bytes
+Request timeout for icmp_seq 0
+Request timeout for icmp_seq 1
+
+--- 10.34.1.31 ping statistics ---
+3 packets transmitted, 0 packets received, 100.0% packet loss",2026-03-09T10:20:16+01:00
+tcp:10.34.1.31:22,FAIL,timed out,2026-03-09T10:20:21+01:00
+tcp:10.34.1.31:5201,FAIL,timed out,2026-03-09T10:20:26+01:00
+ntp_sync,OK,"sntp_exchange {
+        result: 0 (Success)
+        header: 24 (li:0 vn:4 mode:4)
+       stratum: 01",2026-03-09T10:20:26+01:00
+tool:iperf3,OK,/usr/local/bin/iperf3,2026-03-09T12:26:01+01:00
+tool:mtr,FAIL,,2026-03-09T12:26:01+01:00
+tool:traceroute,OK,/usr/sbin/traceroute,2026-03-09T12:26:01+01:00
+tool:ping,OK,/sbin/ping,2026-03-09T12:26:01+01:00
+tool:ffmpeg (optional),FAIL,not installed — optional,2026-03-09T12:26:01+01:00
+interface:en5,FAIL,"{'interface_name': 'en5', 'interface_ip': '', 'gateway': '192.168.18.1', 'mtu': 16000}",2026-03-09T12:26:01+01:00
+wifi_only_ethernet,FAIL,Wi-Fi active,2026-03-09T12:26:01+01:00
+ping:10.34.1.31,OK,"10.34.1.31 (10.34.1.31): 56 data bytes
+Request timeout for icmp_seq 0
+Request timeout for icmp_seq 1
+
+--- 10.34.1.31 ping statistics ---
+3 packets transmitted, 0 packets received, 100.0% packet loss",2026-03-09T12:26:06+01:00
+tcp:10.34.1.31:22,FAIL,timed out,2026-03-09T12:26:11+01:00
+tcp:10.34.1.31:5201,FAIL,timed out,2026-03-09T12:26:16+01:00
+ntp_sync,OK,"sntp_exchange {
+        result: 0 (Success)
+        header: 24 (li:0 vn:4 mode:4)
+       stratum: 01",2026-03-09T12:26:16+01:00
+tool:iperf3,OK,/usr/local/bin/iperf3,2026-03-09T12:27:50+01:00
+tool:mtr,FAIL,,2026-03-09T12:27:50+01:00
+tool:traceroute,OK,/usr/sbin/traceroute,2026-03-09T12:27:50+01:00
+tool:ping,OK,/sbin/ping,2026-03-09T12:27:50+01:00
+tool:ffmpeg (optional),FAIL,not installed — optional,2026-03-09T12:27:50+01:00
+interface:en5,FAIL,"{'interface_name': 'en5', 'interface_ip': '', 'gateway': '192.168.18.1', 'mtu': 16000}",2026-03-09T12:27:50+01:00
+wifi_only_ethernet,FAIL,Wi-Fi active,2026-03-09T12:27:50+01:00
+ping:10.34.1.31,OK,"34.1.31: icmp_seq=2 ttl=62 time=71.176 ms
+
+--- 10.34.1.31 ping statistics ---
+3 packets transmitted, 3 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 71.176/77.368/85.570/6.046 ms",2026-03-09T12:27:52+01:00
+tcp:10.34.1.31:22,OK,78.2ms,2026-03-09T12:27:52+01:00
+tcp:10.34.1.31:5201,FAIL,[Errno 61] Connection refused,2026-03-09T12:27:52+01:00
+ntp_sync,OK,"sntp_exchange {
+        result: 0 (Success)
+        header: 24 (li:0 vn:4 mode:4)
+       stratum: 01",2026-03-09T12:27:52+01:00

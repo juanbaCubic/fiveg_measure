@@ -1,0 +1,3 @@
+run_id,tag,timestamp_start,timestamp_end,macos_version,mac_model,interface_name,interface_ip,gateway,mtu,wifi_active,public_ip,server_host,iperf_port,router_tech,router_rsrp,router_rsrq,router_sinr,router_band,router_cell_id
+98d0b4eb-5013-4a6e-9cc6-eb8115184cd6,Router_SIM_iPhone_20260310_1903,2026-03-10T19:03:20+01:00,,26.4,"MacBookPro16,1",en5,,192.168.1.1,16000,True,,10.34.1.31,5201,,,,,,
+98d0b4eb-5013-4a6e-9cc6-eb8115184cd6,Router_SIM_iPhone_20260310_1903,2026-03-10T19:03:20+01:00,2026-03-10T19:14:40+01:00,26.4,"MacBookPro16,1",en5,,192.168.1.1,16000,True,,10.34.1.31,5201,,,,,,

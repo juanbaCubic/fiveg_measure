@@ -1,0 +1,4 @@
+run_id,test_id,iteration,timestamp,rtt_idle_p50,rtt_idle_avg,rtt_load_p50,rtt_load_avg,rtt_load_p95,rtt_increase_ms,idle_samples,load_samples
+05e3ddd1-ea69-4b15-8c26-6cfa7ba78c8b,068ca520-1af3-4708-9e63-13c32cc1a820,1,2026-03-05T20:26:07+01:00,,,,,,0,0,0
+05e3ddd1-ea69-4b15-8c26-6cfa7ba78c8b,9a8742f3-3e52-44ea-bdb9-0771de78723d,2,2026-03-05T20:30:38+01:00,,,,,,0,0,0
+05e3ddd1-ea69-4b15-8c26-6cfa7ba78c8b,43803001-382b-4596-99e5-5eae96a2b194,3,2026-03-05T20:35:37+01:00,,,,,,0,0,0

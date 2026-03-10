@@ -1,0 +1,10 @@
+run_id,test_id,iteration,timestamp,bitrate_mbps,duration_s,jitter_ms,lost_packets,total_packets,loss_pct,out_of_order,avg_mbps,error
+05e3ddd1-ea69-4b15-8c26-6cfa7ba78c8b,0d0bcb16-3524-4ceb-aea7-1e3da6dacfa9,1,2026-03-05T20:25:30+01:00,5,10,3.9092,0,4467,0,,5.0,
+05e3ddd1-ea69-4b15-8c26-6cfa7ba78c8b,0d0bcb16-3524-4ceb-aea7-1e3da6dacfa9,1,2026-03-05T20:25:40+01:00,10,10,1.78,0,8932,0,,10.001,
+05e3ddd1-ea69-4b15-8c26-6cfa7ba78c8b,0d0bcb16-3524-4ceb-aea7-1e3da6dacfa9,1,2026-03-05T20:25:51+01:00,20,10,7.4876,0,17858,0,,20.001,
+05e3ddd1-ea69-4b15-8c26-6cfa7ba78c8b,de09f0f8-fda4-4bdf-a23d-d26e1e42a355,2,2026-03-05T20:30:11+01:00,5,10,2.2069,0,4467,0,,5.001,
+05e3ddd1-ea69-4b15-8c26-6cfa7ba78c8b,de09f0f8-fda4-4bdf-a23d-d26e1e42a355,2,2026-03-05T20:30:22+01:00,10,10,,,,,,,"unable to receive control message - port may not be available, the other side may have stopped running, etc.: Connection reset by peer"
+05e3ddd1-ea69-4b15-8c26-6cfa7ba78c8b,de09f0f8-fda4-4bdf-a23d-d26e1e42a355,2,2026-03-05T20:30:23+01:00,20,10,1.1933,0,17862,0,,20.0,
+05e3ddd1-ea69-4b15-8c26-6cfa7ba78c8b,af9474f5-ff25-424b-934a-ff8d87c830ee,3,2026-03-05T20:35:00+01:00,5,10,2.8667,0,4466,0,,5.001,
+05e3ddd1-ea69-4b15-8c26-6cfa7ba78c8b,af9474f5-ff25-424b-934a-ff8d87c830ee,3,2026-03-05T20:35:11+01:00,10,10,1.2259,0,8931,0,,10.001,
+05e3ddd1-ea69-4b15-8c26-6cfa7ba78c8b,af9474f5-ff25-424b-934a-ff8d87c830ee,3,2026-03-05T20:35:21+01:00,20,10,0.563,0,17865,0,,20.001,

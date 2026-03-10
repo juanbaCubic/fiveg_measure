@@ -1,0 +1,3 @@
+run_id,tag,timestamp_start,timestamp_end,macos_version,mac_model,interface_name,interface_ip,gateway,mtu,wifi_active,public_ip,server_host,iperf_port,router_tech,router_rsrp,router_rsrq,router_sinr,router_band,router_cell_id
+9c328600-749b-425c-aeb8-5cd875a82f67,Test_V5_con_MTR,2026-03-10T16:57:08+01:00,,26.4,"MacBookPro16,1",en5,,192.168.18.1,16000,True,,10.34.1.31,5201,,,,,,
+9c328600-749b-425c-aeb8-5cd875a82f67,Test_V5_con_MTR,2026-03-10T16:57:08+01:00,2026-03-10T17:06:32+01:00,26.4,"MacBookPro16,1",en5,,192.168.18.1,16000,True,,10.34.1.31,5201,,,,,,

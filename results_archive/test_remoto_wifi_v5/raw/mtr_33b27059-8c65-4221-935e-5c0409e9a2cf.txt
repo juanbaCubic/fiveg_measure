@@ -1,0 +1,3 @@
+mtr-packet: Failure to open IPv4 sockets
+mtr-packet: Failure to open IPv6 sockets
+mtr: Failure to start mtr-packet: Invalid argument

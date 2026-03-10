@@ -1,0 +1,13 @@
+run_id,test_id,iteration,timestamp,direction,streams,duration_s,avg_mbps,p90_mbps,retransmits_total,error
+05e3ddd1-ea69-4b15-8c26-6cfa7ba78c8b,056cbc86-d50f-49df-b977-944b49cf7781,1,2026-03-05T20:24:33+01:00,UL,1,15,35.503,38.863,0,
+05e3ddd1-ea69-4b15-8c26-6cfa7ba78c8b,056cbc86-d50f-49df-b977-944b49cf7781,1,2026-03-05T20:24:50+01:00,UL,4,15,33.263,46.141,0,
+05e3ddd1-ea69-4b15-8c26-6cfa7ba78c8b,056cbc86-d50f-49df-b977-944b49cf7781,1,2026-03-05T20:25:07+01:00,DL,1,15,6.499,11.515,0,
+05e3ddd1-ea69-4b15-8c26-6cfa7ba78c8b,056cbc86-d50f-49df-b977-944b49cf7781,1,2026-03-05T20:25:25+01:00,DL,4,15,,,,"unable to receive control message - port may not be available, the other side may have stopped running, etc.: Connection reset by peer"
+05e3ddd1-ea69-4b15-8c26-6cfa7ba78c8b,c27be4b1-0fcd-41a6-ab7d-0ea1f40d15d8,2,2026-03-05T20:29:16+01:00,UL,1,15,34.453,38.762,0,
+05e3ddd1-ea69-4b15-8c26-6cfa7ba78c8b,c27be4b1-0fcd-41a6-ab7d-0ea1f40d15d8,2,2026-03-05T20:29:32+01:00,UL,4,15,,,,"unable to receive control message - port may not be available, the other side may have stopped running, etc.: Connection reset by peer"
+05e3ddd1-ea69-4b15-8c26-6cfa7ba78c8b,c27be4b1-0fcd-41a6-ab7d-0ea1f40d15d8,2,2026-03-05T20:29:32+01:00,DL,1,15,9.857,17.82,0,
+05e3ddd1-ea69-4b15-8c26-6cfa7ba78c8b,c27be4b1-0fcd-41a6-ab7d-0ea1f40d15d8,2,2026-03-05T20:29:48+01:00,DL,4,15,14.466,22.05,0,
+05e3ddd1-ea69-4b15-8c26-6cfa7ba78c8b,ce8c1699-c37f-42ec-820e-aa685410e8bd,3,2026-03-05T20:33:47+01:00,UL,1,15,31.588,36.701,0,
+05e3ddd1-ea69-4b15-8c26-6cfa7ba78c8b,ce8c1699-c37f-42ec-820e-aa685410e8bd,3,2026-03-05T20:34:04+01:00,UL,4,15,19.709,33.608,0,
+05e3ddd1-ea69-4b15-8c26-6cfa7ba78c8b,ce8c1699-c37f-42ec-820e-aa685410e8bd,3,2026-03-05T20:34:20+01:00,DL,1,15,3.635,9.416,0,
+05e3ddd1-ea69-4b15-8c26-6cfa7ba78c8b,ce8c1699-c37f-42ec-820e-aa685410e8bd,3,2026-03-05T20:34:36+01:00,DL,4,15,2.306,9.475,0,

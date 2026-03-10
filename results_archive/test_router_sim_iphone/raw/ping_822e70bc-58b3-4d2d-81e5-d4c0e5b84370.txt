@@ -1,0 +1,35 @@
+PING 10.34.1.31 (10.34.1.31): 56 data bytes
+64 bytes from 10.34.1.31: icmp_seq=0 ttl=62 time=124.022 ms
+64 bytes from 10.34.1.31: icmp_seq=1 ttl=62 time=130.104 ms
+64 bytes from 10.34.1.31: icmp_seq=2 ttl=62 time=156.750 ms
+64 bytes from 10.34.1.31: icmp_seq=3 ttl=62 time=161.497 ms
+64 bytes from 10.34.1.31: icmp_seq=4 ttl=62 time=126.733 ms
+64 bytes from 10.34.1.31: icmp_seq=5 ttl=62 time=136.689 ms
+64 bytes from 10.34.1.31: icmp_seq=6 ttl=62 time=113.228 ms
+64 bytes from 10.34.1.31: icmp_seq=7 ttl=62 time=95.847 ms
+64 bytes from 10.34.1.31: icmp_seq=8 ttl=62 time=96.588 ms
+64 bytes from 10.34.1.31: icmp_seq=9 ttl=62 time=109.591 ms
+64 bytes from 10.34.1.31: icmp_seq=10 ttl=62 time=116.399 ms
+64 bytes from 10.34.1.31: icmp_seq=11 ttl=62 time=109.126 ms
+64 bytes from 10.34.1.31: icmp_seq=12 ttl=62 time=126.013 ms
+64 bytes from 10.34.1.31: icmp_seq=13 ttl=62 time=95.876 ms
+64 bytes from 10.34.1.31: icmp_seq=14 ttl=62 time=111.487 ms
+64 bytes from 10.34.1.31: icmp_seq=15 ttl=62 time=112.085 ms
+64 bytes from 10.34.1.31: icmp_seq=16 ttl=62 time=104.826 ms
+64 bytes from 10.34.1.31: icmp_seq=17 ttl=62 time=97.668 ms
+64 bytes from 10.34.1.31: icmp_seq=18 ttl=62 time=109.308 ms
+64 bytes from 10.34.1.31: icmp_seq=19 ttl=62 time=108.298 ms
+64 bytes from 10.34.1.31: icmp_seq=20 ttl=62 time=132.401 ms
+64 bytes from 10.34.1.31: icmp_seq=21 ttl=62 time=115.001 ms
+64 bytes from 10.34.1.31: icmp_seq=22 ttl=62 time=115.845 ms
+64 bytes from 10.34.1.31: icmp_seq=23 ttl=62 time=100.279 ms
+64 bytes from 10.34.1.31: icmp_seq=24 ttl=62 time=137.722 ms
+64 bytes from 10.34.1.31: icmp_seq=25 ttl=62 time=112.493 ms
+64 bytes from 10.34.1.31: icmp_seq=26 ttl=62 time=117.408 ms
+64 bytes from 10.34.1.31: icmp_seq=27 ttl=62 time=122.827 ms
+64 bytes from 10.34.1.31: icmp_seq=28 ttl=62 time=130.536 ms
+64 bytes from 10.34.1.31: icmp_seq=29 ttl=62 time=109.685 ms
+
+--- 10.34.1.31 ping statistics ---
+30 packets transmitted, 30 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 95.847/117.878/161.497/16.039 ms

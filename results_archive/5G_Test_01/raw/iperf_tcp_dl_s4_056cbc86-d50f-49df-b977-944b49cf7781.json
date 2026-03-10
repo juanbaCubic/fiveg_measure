@@ -1,0 +1,11 @@
+{
+	"start":	{
+		"connected":	[],
+		"version":	"iperf 3.20",
+		"system_info":	"Darwin MacBook-Pro-de-Juan-2.local 25.4.0 Darwin Kernel Version 25.4.0: Wed Feb 25 21:00:20 PST 2026; root:xnu-12377.100.630.501.3~2/RELEASE_X86_64 x86_64"
+	},
+	"intervals":	[],
+	"end":	{
+	},
+	"error":	"unable to receive control message - port may not be available, the other side may have stopped running, etc.: Connection reset by peer"
+}

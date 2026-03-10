@@ -1,0 +1,36 @@
+PING 10.34.1.31 (10.34.1.31): 56 data bytes
+Request timeout for icmp_seq 0
+64 bytes from 10.34.1.31: icmp_seq=0 ttl=62 time=229.468 ms
+64 bytes from 10.34.1.31: icmp_seq=1 ttl=62 time=107.241 ms
+64 bytes from 10.34.1.31: icmp_seq=2 ttl=62 time=143.284 ms
+64 bytes from 10.34.1.31: icmp_seq=3 ttl=62 time=114.595 ms
+64 bytes from 10.34.1.31: icmp_seq=4 ttl=62 time=103.167 ms
+64 bytes from 10.34.1.31: icmp_seq=5 ttl=62 time=93.608 ms
+64 bytes from 10.34.1.31: icmp_seq=6 ttl=62 time=101.524 ms
+64 bytes from 10.34.1.31: icmp_seq=7 ttl=62 time=101.575 ms
+64 bytes from 10.34.1.31: icmp_seq=8 ttl=62 time=101.548 ms
+64 bytes from 10.34.1.31: icmp_seq=9 ttl=62 time=136.513 ms
+64 bytes from 10.34.1.31: icmp_seq=10 ttl=62 time=149.336 ms
+64 bytes from 10.34.1.31: icmp_seq=11 ttl=62 time=103.665 ms
+64 bytes from 10.34.1.31: icmp_seq=12 ttl=62 time=101.866 ms
+64 bytes from 10.34.1.31: icmp_seq=13 ttl=62 time=90.540 ms
+64 bytes from 10.34.1.31: icmp_seq=14 ttl=62 time=127.813 ms
+64 bytes from 10.34.1.31: icmp_seq=15 ttl=62 time=82.061 ms
+64 bytes from 10.34.1.31: icmp_seq=16 ttl=62 time=219.561 ms
+64 bytes from 10.34.1.31: icmp_seq=17 ttl=62 time=124.784 ms
+64 bytes from 10.34.1.31: icmp_seq=18 ttl=62 time=106.557 ms
+64 bytes from 10.34.1.31: icmp_seq=19 ttl=62 time=162.293 ms
+64 bytes from 10.34.1.31: icmp_seq=20 ttl=62 time=164.284 ms
+64 bytes from 10.34.1.31: icmp_seq=21 ttl=62 time=102.880 ms
+64 bytes from 10.34.1.31: icmp_seq=22 ttl=62 time=165.748 ms
+64 bytes from 10.34.1.31: icmp_seq=23 ttl=62 time=211.864 ms
+64 bytes from 10.34.1.31: icmp_seq=24 ttl=62 time=123.662 ms
+64 bytes from 10.34.1.31: icmp_seq=25 ttl=62 time=142.957 ms
+64 bytes from 10.34.1.31: icmp_seq=26 ttl=62 time=268.706 ms
+64 bytes from 10.34.1.31: icmp_seq=27 ttl=62 time=153.393 ms
+64 bytes from 10.34.1.31: icmp_seq=28 ttl=62 time=105.928 ms
+64 bytes from 10.34.1.31: icmp_seq=29 ttl=62 time=103.799 ms
+
+--- 10.34.1.31 ping statistics ---
+30 packets transmitted, 30 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 82.061/134.807/268.706/45.151 ms
