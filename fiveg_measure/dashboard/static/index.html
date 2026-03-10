@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>fiveg_measure Dashboard</title>
+  <meta name="description" content="5G Network Measurement Dashboard — time series and geolocation map">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+
+  <!-- App CSS -->
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+  <div id="app">
+
+    <!-- ── Header ─────────────────────────────────────────────────────── -->
+    <header id="header">
+      <div class="logo">
+        <div class="dot"></div>
+        fiveg_measure
+        <span style="color:var(--text-muted);font-weight:400;font-size:13px;margin-left:4px">Dashboard</span>
+      </div>
+      <div class="spacer"></div>
+      <div id="run-selector">
+        <label>Run</label>
+        <select id="run-select">
+          <option value="">Cargando…</option>
+        </select>
+        <button id="refresh-btn">↻ Actualizar</button>
+      </div>
+    </header>
+
+    <!-- ── Main grid ──────────────────────────────────────────────────── -->
+    <div id="main">
+
+      <!-- Sidebar -->
+      <aside id="sidebar">
+
+        <!-- KPI grid -->
+        <div class="sidebar-section">
+          <h3>Indicadores clave</h3>
+          <div class="kpi-grid">
+            <div class="kpi-card">
+              <div class="kpi-label">RTT p50</div>
+              <div class="kpi-value" id="kpi-rtt">—</div>
+              <div class="kpi-unit">ms</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-label">Jitter p50</div>
+              <div class="kpi-value" id="kpi-jitter">—</div>
+              <div class="kpi-unit">ms</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-label">Pérdida</div>
+              <div class="kpi-value" id="kpi-loss">—</div>
+              <div class="kpi-unit">%</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-label">Throughput</div>
+              <div class="kpi-value" id="kpi-dl">—</div>
+              <div class="kpi-unit">Mbps</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-label">Bufferbloat</div>
+              <div class="kpi-value" id="kpi-bb">—</div>
+              <div class="kpi-unit">ms aumento</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-label">TCP connect</div>
+              <div class="kpi-value" id="kpi-conn">—</div>
+              <div class="kpi-unit">ms</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Router signal -->
+        <div class="sidebar-section">
+          <h3>Señal 5G / LTE</h3>
+          <div class="router-badge">
+            <div class="router-row">
+              <span class="rlabel">Tecnología</span>
+              <span class="tech-badge" id="router-tech">—</span>
+            </div>
+            <div class="router-row">
+              <span class="rlabel">RSRP</span>
+              <span class="rval" id="router-rsrp">—</span>
+            </div>
+            <div class="router-row">
+              <span class="rlabel">RSRQ</span>
+              <span class="rval" id="router-rsrq">—</span>
+            </div>
+            <div class="router-row">
+              <span class="rlabel">SINR</span>
+              <span class="rval" id="router-sinr">—</span>
+            </div>
+            <div class="router-row">
+              <span class="rlabel">Banda</span>
+              <span class="rval" id="router-band">—</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Run metadata -->
+        <div class="sidebar-section">
+          <h3>Metadatos del run</h3>
+          <div class="meta-list">
+            <div class="meta-row"><span class="mlabel">Inicio</span><span class="mval" id="meta-ts">—</span></div>
+            <div class="meta-row"><span class="mlabel">Interfaz</span><span class="mval" id="meta-iface">—</span></div>
+            <div class="meta-row"><span class="mlabel">IP local</span><span class="mval" id="meta-ip">—</span></div>
+            <div class="meta-row"><span class="mlabel">IP pública</span><span class="mval" id="meta-pubip">—</span>
+            </div>
+            <div class="meta-row"><span class="mlabel">Servidor</span><span class="mval" id="meta-server">—</span></div>
+            <div class="meta-row"><span class="mlabel">Wi-Fi</span><span class="mval" id="meta-wifi">—</span></div>
+            <div class="meta-row"><span class="mlabel">Modelo Mac</span><span class="mval" id="meta-model">—</span>
+            </div>
+          </div>
+        </div>
+
+      </aside><!-- /sidebar -->
+
+      <!-- Content -->
+      <main id="content">
+
+        <!-- Tab navigation -->
+        <nav id="tabs">
+          <button class="tab-btn active" data-tab="latency">Latencia</button>
+          <button class="tab-btn" data-tab="throughput">Throughput</button>
+          <button class="tab-btn" data-tab="bufferbloat">Bufferbloat</button>
+          <button class="tab-btn" data-tab="system">Sistema</button>
+          <button class="tab-btn" data-tab="map">Mapa</button>
+        </nav>
+
+        <!-- ── Tab: Latencia ── -->
+        <div class="tab-panel active" id="panel-latency">
+          <div class="chart-row">
+            <div class="chart-card">
+              <div class="card-header">
+                <span class="card-title">RTT / Latencia</span>
+                <span class="card-badge">ms</span>
+              </div>
+              <div class="chart-wrap"><canvas id="chart-latency"></canvas></div>
+            </div>
+            <div class="chart-card">
+              <div class="card-header">
+                <span class="card-title">Pérdida de paquetes</span>
+                <span class="card-badge">%</span>
+              </div>
+              <div class="chart-wrap"><canvas id="chart-loss"></canvas></div>
+            </div>
+          </div>
+          <div class="chart-card">
+            <div class="card-header">
+              <span class="card-title">Jitter UDP</span>
+              <span class="card-badge">ms</span>
+            </div>
+            <div class="chart-wrap"><canvas id="chart-jitter"></canvas></div>
+          </div>
+        </div>
+
+        <!-- ── Tab: Throughput ── -->
+        <div class="tab-panel" id="panel-throughput">
+          <div class="chart-card">
+            <div class="card-header">
+              <span class="card-title">Throughput TCP / HTTP</span>
+              <span class="card-badge">Mbps</span>
+            </div>
+            <div class="chart-wrap" style="height:320px"><canvas id="chart-throughput"></canvas></div>
+          </div>
+          <div class="chart-card">
+            <div class="card-header">
+              <span class="card-title">Otras métricas</span>
+              <span class="card-badge">varios</span>
+            </div>
+            <div class="chart-wrap"><canvas id="chart-other"></canvas></div>
+          </div>
+        </div>
+
+        <!-- ── Tab: Bufferbloat ── -->
+        <div class="tab-panel" id="panel-bufferbloat">
+          <div class="chart-card">
+            <div class="card-header">
+              <span class="card-title">RTT idle vs. bajo carga</span>
+              <span class="card-badge">ms</span>
+            </div>
+            <div class="chart-wrap" style="height:320px"><canvas id="chart-bufferbloat"></canvas></div>
+          </div>
+        </div>
+
+        <!-- ── Tab: Sistema ── -->
+        <div class="tab-panel" id="panel-system">
+          <div class="chart-card">
+            <div class="card-header">
+              <span class="card-title">CPU</span>
+              <span class="card-badge">%</span>
+            </div>
+            <div class="chart-wrap"><canvas id="chart-cpu"></canvas></div>
+          </div>
+          <div class="chart-row">
+            <div class="chart-card">
+              <div class="card-header">
+                <span class="card-title">Memoria</span>
+                <span class="card-badge">MB</span>
+              </div>
+              <div class="chart-wrap"><canvas id="chart-mem"></canvas></div>
+            </div>
+            <div class="chart-card">
+              <div class="card-header">
+                <span class="card-title">Red (RX / TX)</span>
+                <span class="card-badge">Mbps</span>
+              </div>
+              <div class="chart-wrap"><canvas id="chart-net"></canvas></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Tab: Mapa ── -->
+        <div class="tab-panel" id="panel-map">
+          <div id="map-card">
+            <div class="card-header">
+              <div class="card-title">Geolocalización del punto de medición</div>
+              <small style="color:var(--text-muted);font-size:11px">
+                Basado en la IP pública al momento del run — via ip-api.com
+              </small>
+            </div>
+            <div id="map"></div>
+          </div>
+        </div>
+
+      </main>
+    </div><!-- /main -->
+
+  </div><!-- /app -->
+
+  <!-- Status bar -->
+  <div id="status-bar">
+    <div class="dot"></div>
+    <span id="status-text">Iniciando…</span>
+  </div>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <!-- Leaflet -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <!-- App -->
+  <script src="/app.js"></script>
+</body>
+
+</html>

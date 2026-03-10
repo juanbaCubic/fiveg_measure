@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Results (datos de medición — pueden ser grandes)
+results/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Sensitive data (contraseñas en configs)
+# NOTA: configs/conf_mayora.yaml contiene la contraseña SSH.
+# Si quieres subirlo, elimina la contraseña del archivo primero.
+configs/conf_mayora.yaml
+
+# Logs
+*.log
+
+# Temporary
+/tmp/

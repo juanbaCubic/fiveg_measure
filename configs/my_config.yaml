@@ -1,0 +1,50 @@
+# ─────────────────────────────────────────────────────────────────
+# fiveg_measure — Configuration for Real 5G Tests
+# ─────────────────────────────────────────────────────────────────
+
+server:
+  host: "3.69.220.213"
+  ssh_user: "forge"
+  ssh_key_path: "~/.ssh/airtrace-web.pem"
+  ssh_port: 22
+  iperf_port: 5201
+  http_base_url: ""              # Emptied to skip HTTP tests for now
+  video_endpoint: ""
+
+client:
+  interface: "en5"               # The 5G Ethernet connection
+  disable_wifi_check: false
+  time_sync_check: true
+
+suite:
+  iterations: 3
+  warmup_seconds: 2
+  cooldown_seconds: 3
+
+ping:
+  count: 30
+  interval: 0.2
+  payload_bytes: 56
+
+mtr:
+  count: 20
+
+iperf_tcp:
+  duration_s: 15
+  parallel_streams_list: [1, 4]
+  reverse: true
+
+iperf_udp:
+  duration_s: 10
+  bitrates_mbps_list: [5, 10, 20] # Lowered from 40 to avoid instant cap
+  packet_len_bytes: 1400
+
+bufferbloat:
+  load_direction: "downlink"
+  ping_count: 40
+  idle_ping_count: 20
+
+output:
+  csv_delimiter: ","
+  timezone: "Europe/Madrid"
+  store_raw_outputs: true

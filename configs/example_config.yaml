@@ -1,0 +1,74 @@
+# ─────────────────────────────────────────────────────────────────
+# fiveg_measure — Example Configuration Profile
+# ─────────────────────────────────────────────────────────────────
+
+# SMART Goals for R3 Validation
+# (Latency <= 50ms, PER <= 1%, Throughput HD Video)
+kpi_targets:
+  max_latency_p95_ms: 50.0
+  max_per_udp_pct: 1.0
+  min_throughput_tcp_mbps: 15.0
+
+feko_correlation:
+  expected_rsrp: -90           # Predicted RSRP from Altair Feko (dBm)
+  expected_sinr: 15            # Predicted SINR from Altair Feko (dB)
+  site_id: "Site1_WaterTank"
+
+server:
+  host: "192.168.1.100"          # <CHANGE_ME> IP or hostname of remote Linux server
+  ssh_user: "ubuntu"             # <CHANGE_ME>
+  ssh_key_path: "~/.ssh/id_rsa" # <CHANGE_ME>
+  ssh_port: 22
+  iperf_port: 5201
+  http_base_url: "http://192.168.1.100:8080"   # optional; leave empty "" to skip HTTP tests
+  video_endpoint: ""             # optional; URL of a video stream for future use
+
+client:
+  interface: "en5"               # <CHANGE_ME> Ethernet interface (en0, en5, …). Run `ifconfig` to find it.
+  disable_wifi_check: false      # set true to suppress the Wi-Fi warning
+  time_sync_check: true          # check NTP drift (informational)
+
+suite:
+  iterations: 3                  # repetitions of each test
+  warmup_seconds: 2
+  cooldown_seconds: 3
+
+ping:
+  count: 30
+  interval: 0.2                 # seconds between pings
+  payload_bytes: 56
+
+mtr:
+  count: 20
+
+iperf_tcp:
+  duration_s: 15
+  parallel_streams_list: [1, 4]
+  reverse: true                 # also run downlink (reverse) direction
+
+iperf_udp:
+  duration_s: 10
+  bitrates_mbps_list: [5, 10, 20, 40]
+  packet_len_bytes: 1400
+
+bufferbloat:
+  load_direction: "downlink"    # "uplink" or "downlink"
+  ping_count: 40                # pings during load phase
+  idle_ping_count: 20
+
+http_upload:
+  # Paths to local files to upload (created by make_sample_data.sh)
+  files:
+    - "sample_data/file_50mb.bin"
+  timeout_s: 120
+
+http_download:
+  # URLs served by the remote server (e.g. via python3 -m http.server on the server)
+  urls:
+    - "http://192.168.1.100:8080/file_200mb.bin"
+  timeout_s: 120
+
+output:
+  csv_delimiter: ","
+  timezone: "Europe/Madrid"
+  store_raw_outputs: true       # save raw iperf JSON, ping txt, etc. under raw/

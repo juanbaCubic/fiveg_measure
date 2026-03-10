@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fiveg_measure"
+version = "0.1.0"
+description = "5G network measurement framework for MacBook Pro via Ethernet to NETGEAR MR6150"
+authors = [{ name = "5G Measurement Framework" }]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pandas>=2.0",
+    "pyyaml>=6.0",
+    "paramiko>=3.0",
+    "psutil>=5.9",
+    "requests>=2.31",
+]
+
+[project.scripts]
+fiveg-measure = "fiveg_measure.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["fiveg_measure*"]

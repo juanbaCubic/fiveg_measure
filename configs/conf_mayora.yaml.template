@@ -1,0 +1,42 @@
+# ═══════════════════════════════════════════════════════════════════
+#  La Mayora — Server Configuration (TEMPLATE)
+# ═══════════════════════════════════════════════════════════════════
+# Copy this file to configs/conf_mayora.yaml and fill in the password.
+
+server:
+  host: "10.34.1.31"
+  ssh_user: "pitance"
+  ssh_password: "YOUR_PASSWORD_HERE"  # ← Replace with actual password
+  ssh_port: 22
+  iperf_port: 5201
+  http_base_url: ""
+
+kpi_targets:
+  max_latency_p95_ms: 50.0
+  max_per_udp_pct: 1.0
+  min_throughput_tcp_mbps: 15.0
+  max_mec_latency_ms: 500.0
+  min_uptime_pct: 99.0
+
+feko_correlation:
+  expected_rsrp: -75
+  expected_sinr: 15.0
+
+client:
+  interface: "en6"
+
+ping:
+  count: 30
+  interval: 0.2
+  payload_bytes: 56
+
+iperf:
+  duration: 10
+  parallel_streams: [1, 4]
+  udp_bitrates: ["5M", "10M", "20M"]
+  direction: ["UL", "DL"]
+
+output:
+  csv_delimiter: ","
+  store_raw_outputs: true
+  timezone: "Europe/Madrid"
