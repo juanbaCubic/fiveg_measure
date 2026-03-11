@@ -153,9 +153,13 @@ def cmd_remote_setup(args) -> int:
 
     cfg = load_config(args.config)
     srv = RemoteServer(cfg)
+    
+    # 1. Verification
     results = srv.verify()
+    log.info("═══ Remote Server Status ═══")
     for k, v in results.items():
         log.info("  %s: %s", k, v)
+    
     if not results.get("iperf3_installed"):
         log.warning("iperf3 not installed on server.")
         if args.install:
@@ -167,6 +171,21 @@ def cmd_remote_setup(args) -> int:
             else:
                 log.error("iperf3 install failed. Please install manually on the server.")
                 return 1
+    
+    # 2. Server Management
+    if args.start_server or args.stop_server:
+        try:
+            srv.connect()
+            if args.stop_server:
+                srv.stop_iperf_server()
+            if args.start_server:
+                port = cfg.server.get("iperf_port", 5201)
+                srv.start_iperf_server(port)
+            srv.disconnect()
+        except Exception as exc:
+            log.error("Remote server operation failed: %s", exc)
+            return 1
+            
     return 0
 
 
@@ -353,9 +372,11 @@ def build_parser() -> argparse.ArgumentParser:
     p_test.add_argument("--outdir", default="results")
 
     # remote-setup
-    p_remote = sub.add_parser("remote-setup", help="Verify/install iperf3 on the server via SSH")
+    p_remote = sub.add_parser("remote-setup", help="Verify/install/start iperf3 on the server via SSH")
     p_remote.add_argument("--config", required=True)
     p_remote.add_argument("--install", action="store_true", help="Install iperf3 if missing")
+    p_remote.add_argument("--start-server", action="store_true", help="Start iperf3 -s in background")
+    p_remote.add_argument("--stop-server", action="store_true", help="Stop any running iperf3 -s")
 
     # summarize
     p_sum = sub.add_parser("summarize", help="Aggregate results into a summary CSV")
